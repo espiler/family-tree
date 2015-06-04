@@ -2,15 +2,25 @@ svg {
   padding-left: 50px;
 }
 
+p {
+  display: inline-block;
+}
+
+#inputs {
+	float: right;
+	width: 40%;
+	height: 500px;
+}
+
 .node circle {
-    fill: #fff;
-    stroke: steelblue;
-    stroke-width: 1.5px;
+  fill: #fff;
+  stroke: steelblue;
+  stroke-width: 1.5px;
 }
 .node {
-    font: 10px sans-serif;
+  font: 10px sans-serif;
 }
 .link {
-    fill: none;
-    stroke: #ccc;
+  fill: none;
+  stroke: #ccc;
 }

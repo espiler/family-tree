@@ -1,12 +1,13 @@
+var nancy, kevin;
+nancy = new FamilyTree('Nancy').addChildren('Adam','Jill','Carl');
+nancy.getChild('Carl').addChildren('Catherine','Joseph');
+kevin = nancy.getChild('Jill').addChild('Kevin');
+kevin.addChildren('Samuel','George','James','Aaron');
+kevin.getChild('James').addChild('Mary');
+kevin.getChild('George').addChildren('Patrick', 'Robert');
+
 $(document).ready(function() {
   
-  var nancy, kevin;
-  nancy = new FamilyTree('Nancy').addChildren('Adam','Jill','Carl');
-  nancy.getChild('Carl').addChildren('Catherine','Joseph');
-  kevin = nancy.getChild('Jill').addChild('Kevin');
-  kevin.addChildren('Samuel','George','James','Aaron');
-  kevin.getChild('James').addChild('Mary');
-  kevin.getChild('George').addChildren('Patrick', 'Robert');
 
   var root = nancy;
 
@@ -28,7 +29,10 @@ $(document).ready(function() {
     .attr("transform", "translate(40,0)");
 
   var nodes = cluster.nodes(root);
-  nodes.forEach(function(d) { d.y = d.depth * 80; });
+  nodes.forEach(function(d) { 
+    d.y = d.depth * 80;
+    d.children = d.children || []; 
+  });
   var links = cluster.links(nodes);
 
   var link = svg.selectAll(".link")
@@ -57,5 +61,4 @@ $(document).ready(function() {
     return d.name;
   });
 
-  d3.select(self.frameElement).style("height", height + "px");
 })

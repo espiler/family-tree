@@ -28,10 +28,19 @@ FamilyTree.prototype.getChild = function(child) {
 }
 
 FamilyTree.prototype.findGrandparent = function(grandchild) {
-	if (this.name === grandchild) { return this.parent.parent.name; }
+	if (this.name === grandchild) { return this.parent.parent ? this.parent.parent.name : null; }
 	for (var i = 0; i < this.children.length; i++) {
 		if (this.children[i].findGrandparent(grandchild)) { return this.children[i].findGrandparent(grandchild);}
 	}
+}
+
+FamilyTree.prototype.findAllPeople = function(names) {
+	names = names || [];
+	names.push(this.name);
+	this.children.forEach(function(child) {
+		child.findAllPeople(names);
+	})
+	return names;
 }
 
 FamilyTree.prototype.findOnlyChildren = function(onlyChildren) {

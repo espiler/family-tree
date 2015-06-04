@@ -33,6 +33,10 @@ describe("Family Tree", function() {
       expect(nancy.getChild('Betty')).to.equal(null);
     })
 
+    it("should find all names in tree", function(){
+      expect(nancy.findAllPeople().sort()).to.deep.equal(['Adam','Samuel','Patrick','Robert','Mary','Aaron','Catherine','Joseph', 'Nancy', 'Kevin', 'Jill', 'George', 'James', 'Carl'].sort())
+    })
+
   })
 
   describe("Search Methods", function() {
@@ -54,7 +58,7 @@ describe("Family Tree", function() {
     it("should find grandparent with most grandkids", function() {
       expect(nancy.findMostFruitful()).to.equal("Jill");
     });
-    
+
   })  
 
 
