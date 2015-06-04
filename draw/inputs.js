@@ -10,8 +10,19 @@ $(document).ready(function() {
 	});
 
 	$('#findGrandparent').on('change', function() {
-		var grandparent = nancy.findGrandparent(this.value) || 'not in tree';
-		$('#grandparent').text(grandparent);
+		$('#grandparent').text(nancy.findGrandparent(this.value) || 'not in tree');
+	})
+
+	$('#findOnlyChildren').on('click', function() {
+		$('#onlyChildren').text(nancy.findOnlyChildren().join(', '));
+	})
+
+	$('#findChildless').on('click', function() {
+		$('#childless').text(nancy.findChildless().join(', '));
+	})
+
+	$('#findMostFruitful').on('click', function() {
+		$('#mostFruitful').text(nancy.findMostFruitful());
 	})
 
 })
