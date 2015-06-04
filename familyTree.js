@@ -26,3 +26,10 @@ FamilyTree.prototype.getChild = function(child) {
 	};
 	return null;
 }
+
+FamilyTree.prototype.findGrandparent = function(grandchild) {
+	if (this.name === grandchild) { return this.parent.parent.name; }
+	for (var i = 0; i < this.children.length; i++) {
+		if (this.children[i].findGrandparent(grandchild)) { return this.children[i].findGrandparent(grandchild);}
+	}
+}
