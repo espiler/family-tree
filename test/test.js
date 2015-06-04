@@ -1,14 +1,13 @@
 describe("Family Tree", function() {
 
-  var nancy, kevin;
+  var nancy;
 
   beforeEach(function() {
     nancy = new FamilyTree('Nancy').addChildren('Adam','Jill','Carl');
-    nancy.getChild('Carl').addChildren('Catherine','Joseph');
-    kevin = nancy.getChild('Jill').addChild('Kevin');
-    kevin.addChildren('Samuel','George','James','Aaron');
-    kevin.getChild('James').addChild('Mary');
-    kevin.getChild('George').addChildren('Patrick', 'Robert');
+    nancy.getPerson('Carl').addChildren('Catherine','Joseph');
+    nancy.getPerson('Jill').addChild('Kevin').addChildren('Samuel','George','James','Aaron');
+    nancy.getPerson('James').addChild('Mary');
+    nancy.getPerson('George').addChildren('Patrick', 'Robert');
   });
   
   describe("Child Methods", function() {
@@ -28,9 +27,10 @@ describe("Family Tree", function() {
       expect(nancy.children.length).to.equal(3);
     });
 
-    it("should find a child", function(){
-      expect(nancy.getChild('Carl').name).to.equal('Carl');
-      expect(nancy.getChild('Betty')).to.equal(null);
+    it("should find a person", function(){
+      expect(nancy.getPerson('Carl').name).to.equal('Carl');
+      expect(nancy.getPerson('James').name).to.equal('James');
+      expect(nancy.getPerson('Betty')).to.equal(null);
     })
 
     it("should find all names in tree", function(){

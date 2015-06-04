@@ -3,7 +3,7 @@ $(document).ready(function() {
 	var allNames = nancy.findAllPeople();
 
 	$.each(allNames, function (i, item) {
-    $('#findGrandparent').append($('<option>', { 
+    $('.allNames').append($('<option>', { 
       value: item,
       text : item 
     }));

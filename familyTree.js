@@ -20,9 +20,11 @@ FamilyTree.prototype.addChild = function(child) {
 	return child;
 }
 
-FamilyTree.prototype.getChild = function(child) {
+FamilyTree.prototype.getPerson = function(name) {
+	debugger;
+	if (this.name === name) { return this; }
 	for (var i = 0; i < this.children.length; i++) {
-		if (this.children[i].name == child) { return this.children[i]; }
+		if (this.children[i].getPerson(name)) {return this.children[i].getPerson(name);}
 	};
 	return null;
 }

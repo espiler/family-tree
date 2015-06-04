@@ -11,7 +11,10 @@
   <body>
 	  
 	  <div id="inputs">
-	  	Find grandparent for <select id="findGrandparent"><option selected disabled hidden value=''></option></select> : <p id="grandparent"></p><br>
+
+	  	Add child <input type="text" id="newChild" placeholder="name"/> to <select id="newParent" class="allNames"><option selected disabled hidden value=''></option></select> <button id="addChild">Go</button><br>
+
+	  	Find grandparent for <select class="allNames" id="findGrandparent"><option selected disabled hidden value=''></option></select> : <p id="grandparent"></p><br>
 
 	  	Who has no siblings? <button id="findOnlyChildren">Go</button> <p id="onlyChildren"></p><br>
 
