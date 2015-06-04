@@ -1,0 +1,30 @@
+{
+  "name": "familyTree",
+  "version": "1.0.0",
+  "description": "",
+  "main": "familyTree.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "chai": "^3.0.0",
+    "d3": "^3.5.5",
+    "jquery": "^2.1.4"
+  },
+  "devDependencies": {
+    "mocha": "^2.2.5"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/espiler/family-tree.git"
+  },
+  "author": "Evan Spiler <evan@evancodes.com> (http://evanodes.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/espiler/family-tree/issues"
+  },
+  "homepage": "https://github.com/espiler/family-tree"
+}

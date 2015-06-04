@@ -5,16 +5,17 @@
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="../node_modules/d3/d3.min.js"></script>
     <script src="../familyTree.js"></script>
-    <script src="draw.js"></script>
+    <script src="treeClone.js"></script>
     <script src="inputs.js"></script>
+    <script src="draw.js"></script>
   </head>
   <body>
-	  
+	 
 	  <div id="inputs">
 
-	  	Add child <input type="text" id="newChild" placeholder="name"/> to <select id="newParent" class="allNames"><option selected disabled hidden value=''></option></select> <button id="addChild">Go</button><br>
+	  	Add child <input type="text" id="newChild" placeholder="name"/> to <select id="newParent" class="allNames"></select> <button id="addChild">Go</button><br>
 
-	  	Find grandparent for <select class="allNames" id="findGrandparent"><option selected disabled hidden value=''></option></select> : <p id="grandparent"></p><br>
+	  	Find grandparent for <select class="allNames" id="findGrandparent"></select> : <p id="grandparent"></p><br>
 
 	  	Who has no siblings? <button id="findOnlyChildren">Go</button> <p id="onlyChildren"></p><br>
 
@@ -23,6 +24,8 @@
 	  	Who has the most grandchildren? <button id="findMostFruitful">Go</button> <p id="mostFruitful"></p>
 
 	  </div>
+
+	  <div id='tree'></div>
 
   </body>
 </html>
