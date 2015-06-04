@@ -43,6 +43,14 @@ describe("Family Tree", function() {
       expect(nancy.findGrandparent('Catherine')).to.equal('Nancy');
     });
 
+    it("should find all only children", function() {
+      expect(nancy.findOnlyChildren().sort()).to.deep.equal(['Kevin','Mary']);
+    });
+
+    it("should find all childless", function() {
+      expect(nancy.findChildless().sort()).to.deep.equal(['Adam','Samuel','Patrick','Robert','Mary','Aaron','Catherine','Joseph'].sort());
+    });
+
   })  
 
 

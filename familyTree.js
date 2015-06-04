@@ -33,3 +33,21 @@ FamilyTree.prototype.findGrandparent = function(grandchild) {
 		if (this.children[i].findGrandparent(grandchild)) { return this.children[i].findGrandparent(grandchild);}
 	}
 }
+
+FamilyTree.prototype.findOnlyChildren = function(onlyChildren) {
+	onlyChildren = onlyChildren || [];
+	if (this.children.length === 1) { onlyChildren.push(this.children[0].name); }
+	this.children.forEach(function(child) {
+		child.findOnlyChildren(onlyChildren);
+	});
+	return onlyChildren;
+}
+
+FamilyTree.prototype.findChildless = function(childless) {
+	childless = childless || [];
+	if (this.children.length === 0) { childless.push(this.name); }
+	this.children.forEach(function(child) {
+		child.findChildless(childless);
+	});
+	return childless;
+}
