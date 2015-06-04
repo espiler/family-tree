@@ -51,6 +51,10 @@ describe("Family Tree", function() {
       expect(nancy.findChildless().sort()).to.deep.equal(['Adam','Samuel','Patrick','Robert','Mary','Aaron','Catherine','Joseph'].sort());
     });
 
+    it("should find grandparent with most grandkids", function() {
+      expect(nancy.findMostFruitful()).to.equal("Jill");
+    });
+    
   })  
 
 

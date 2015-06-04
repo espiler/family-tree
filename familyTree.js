@@ -51,3 +51,17 @@ FamilyTree.prototype.findChildless = function(childless) {
 	});
 	return childless;
 }
+
+FamilyTree.prototype.findMostFruitful = function() {	
+	var	mostFruitful = { grandchildren: 0 };
+	 var traverse = function(node) {
+		node.children.forEach(function(child) {
+			if (child.children.length > mostFruitful.grandchildren) {
+				mostFruitful = { name:node.name, grandchildren: child.children.length }
+			}
+			traverse(child);
+		})
+	};
+	traverse(this);
+	return mostFruitful.name;
+}
