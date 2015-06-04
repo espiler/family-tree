@@ -15,7 +15,7 @@ $(document).ready(function() {
 	});
 
 	$('#findMostFruitful').on('click', function() {
-		$('#mostFruitful').text(nancy.findMostFruitful());
+		$('#mostFruitful').text(Array.isArray(nancy.findMostFruitful()) ? nancy.findMostFruitful().join(', ') : nancy.findMostFruitful());
 	});
 });
 

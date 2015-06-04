@@ -63,15 +63,19 @@ FamilyTree.prototype.findChildless = function(childless) {
 }
 
 FamilyTree.prototype.findMostFruitful = function() {	
-	var	mostFruitful = { grandchildren: 0 };
+	var	mostFruitful = { names:[], grandchildren: 0 };
 	 var traverse = function(node) {
+		var grandchildren = 0;
 		node.children.forEach(function(child) {
-			if (child.children.length > mostFruitful.grandchildren) {
-				mostFruitful = { name:node.name, grandchildren: child.children.length }
-			}
+			grandchildren += child.children.length;
 			traverse(child);
 		})
+		if (grandchildren > mostFruitful.grandchildren) {
+			mostFruitful = { names:[node.name], grandchildren: grandchildren }
+		} else if (grandchildren === mostFruitful.grandchildren) {
+			mostFruitful.names.push(node.name);
+		}
 	};
 	traverse(this);
-	return mostFruitful.name;
+	return mostFruitful.names.length === 1 ? mostFruitful.names[0] : mostFruitful.names;
 }

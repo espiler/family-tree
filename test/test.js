@@ -56,7 +56,9 @@ describe("Family Tree", function() {
     });
 
     it("should find grandparent with most grandkids", function() {
-      expect(nancy.findMostFruitful()).to.equal("Jill");
+      expect(nancy.findMostFruitful()).to.equal('Jill');
+      nancy.getPerson('James').addChild('Jack');
+      expect(nancy.findMostFruitful()).to.deep.equal(['Kevin','Jill'])
     });
 
   })  
