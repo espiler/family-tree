@@ -48,7 +48,7 @@ describe("Family Tree", function() {
     });
 
     it("should find all only children", function() {
-      expect(nancy.findOnlyChildren().sort()).to.deep.equal(['Kevin','Mary']);
+      expect(nancy.findOnlyChildren().sort()).to.deep.equal(['Nancy', 'Kevin','Mary'].sort());
     });
 
     it("should find all childless", function() {

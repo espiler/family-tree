@@ -44,7 +44,7 @@ FamilyTree.prototype.findAllPeople = function(names) {
 }
 
 FamilyTree.prototype.findOnlyChildren = function(onlyChildren) {
-	onlyChildren = onlyChildren || [];
+	if (!onlyChildren) { onlyChildren = [this.name]; }
 	if (this.children.length === 1) { onlyChildren.push(this.children[0].name); }
 	this.children.forEach(function(child) {
 		child.findOnlyChildren(onlyChildren);
